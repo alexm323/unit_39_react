@@ -1,4 +1,4 @@
-React JS 
+Front End Frameworks
 ________________________________________
 Students are always interested about react , without fail all of the instructors teach react 
 
@@ -50,3 +50,257 @@ front end frameworks didnt really exist until we started writing a ton of javasc
 there are dozens of them 
 
 angular , ember, vue, react 
+
+They have complex frameworks easier for us 
+________________________________________
+Why React
+________________________________________
+Why are we learning react?
+
+There is a huge chunk of people that have used react and would use it again
+
+React is lightweight, gives you a lot of freedom, and it is a lot easier to learn 
+
+something like django is very difficult to learn but you can eventually gain mastery and build apps very quickly 
+
+react docs descrie it as a javascript library 
+
+when you compare it, it is much simpler and less controlling of your life 
+
+it was developed open house in facebook, very active development 
+
+react hooks is a massive shift in how it works 
+we will be covering it and going over how it works 
+
+lots of huge companies use react 
+
+really useful for smaller projects 
+
+even for personal projects it excels 
+
+it helps us make client side applications with javascript more easily 
+
+________________________________________
+React components
+________________________________________
+
+lets talk about what is main goal is 
+
+Make it easy to make reusable component with some sort of name 
+
+the seperation of concerns 
+
+that you want to keep your stuff as independent as possible 
+
+but now 
+
+you want to break stuff into components and each of those has its own seperation of concerns 
+
+might have a button, a modal(popup) list etc 
+
+and we would build it up like little lego blocks
+
+in the isntagram example from the browser
+
+if we click on one of the pictures , it pops up the post 
+
+instagram does use react 
+
+there are pieces of reusable content 
+
+new york times also uses components 
+
+it helps us break down the whole appplication into stackable pieces 
+
+a shopping cart app 
+
+instead if we wanted to add in a new product item we could just tell react add a new product component with this info 
+instead of having to get down to the basic add an h1 an image etc etc 
+
+lets get started with our first component
+
+________________________________________
+Tour of React
+________________________________________
+
+Mini tour of react and we will write our first component 
+
+react has a lot of weird pieces that are going to be new 
+
+let us start with a bigger project overview 
+
+Components 
+- The bulding blocks of React
+- Pieces of UI & view logic (you can have simple or fancy components, that listen to api calls and other things , all kinds of stuff instacart is an example that uses react)
+- Functions that know how to return HTML to render (modern way is to write functions not classes)
+
+a very simple function 
+
+const App = () => {
+    return <p>Hi from a function!</p>;
+};
+
+it looks just like html, but it is pretty magical that it gets translated into valid code even though this would throw crazy syntax errors in vanilla js 
+
+there is no logic here or conditionals
+
+to render a component, we need to use a method called reactDOM.render and a destination to where it should show up 
+
+we coul;d append it wherever we want but typically we render our entire application inside of a div with id of root 
+
+if we have some component and we want to render it we are going to wrap our function in what looks like html 
+
+typically we have a single comonent that we render for the entire app 
+
+usually we have 1 top level component called app 
+
+-App    
+    - Navbar
+    - Product list
+        - Product Card
+        - Product Card
+
+
+typically we uppercase camel the component names 
+
+
+________________________________________
+Your First Component 
+________________________________________
+
+steps to create a component 
+
+we are going to see a different way of starting a new react app 
+we are just using cdns for now 
+we will use a better way soon so right now some cdns are fine 
+
+1. Html file with basic skeleton
+2. install or use a cdn for react,react dom, and babel
+3. make our component js file 
+4. need a place to have our component rendered typically a div with id of root which we leave empty
+5. ReactDOM.render(component, where we want it rendered)
+6. script src for our component code in thew html
+
+this is not enough though, it will not load and it does not like our javascript . this is a syntax error. JSX is what lets turn html-like code to javaascript 
+
+Babel is what transpiles this for us 
+
+we have to load babel 
+next we also have to add in the type="text/jsx" attribute to the html
+
+we are not going to be able to run babel from FTP 
+we can use live server though
+
+if we dont render the component it will not show up but everything else will 
+
+next we learn about the app layout 
+________________________________________
+App Layout
+________________________________________
+
+So now we have a very simple shiba component 
+but soon enough we will be making dynamic components
+
+for the moment we are just worried about the syntax 
+
+at the end of the day we are only going to render a single component 
+
+App is the conventional name for the top-level component
+
+we just render the app and nest the other components inside of that 
+
+const Shiba = () => {
+    return <img src="https://picsum.photos/200" />
+}
+
+const SharPei = () => {
+    return <img src="https://picsum.photos/300" />
+}
+const App = () => {
+    return (
+        <div>
+            <Shiba />
+            <SharPei />
+            <Shiba />
+        </div>
+    )
+
+so we end up with a structure like this 
+
+the problem here is that if our files get longer it is annoying to have them all together 
+
+the standard is to break it up into 1 component per file 
+
+what is frustrating about this is that we now need to include each file in our html 
+
+the order matters for that so now we have to be careful about the order 
+and this is only 3 components 
+
+in a typical app we might have 100 plus components. 
+if you refactor things you might need to spend a long time reordering the scripts and getting them in the right order 
+
+thankfully once we get to create react app it will take care of all of that for us
+
+
+________________________________________
+JSX Basic Rules 
+________________________________________
+it is a weird variant of javascript that looks like html 
+if we don't take steps to transpile the code , the browser will yell at us 
+
+we are able to write html inside of javascript 
+we can add in loops and other functionality 
+
+Basic Rules
+-Very particular about how you close elements 
+- have an explicit closing tag
+
+Babel is going to parse through your code and it has to be very strict about how we close our tags 
+
+in html for an img tag if we forget the back slash we dont need the backslash because the browser can still figure it out 
+
+if we tried the same thing in our app component and forgot to close it the browser will freak out 
+
+expected corresponding JSX tag 
+
+from a single component you can only return a given element , the app , if you need to do something like add an h2 you can just insert all the stuff into a parent element 
+
+Your components can use curly braces 
+
+we can also use implicit return where we only return one expression so we dont need the return keyword 
+
+you do not have to use arrow functions , but in react by far what you will see is arrow functions 
+
+
+________________________________________
+Class vs Functional Components
+________________________________________
+
+There are multiple ways to create React components 
+
+-class based components
+-functional components 
+
+With the release of React Hooks 
+
+Allows us to write full featured functional components that are shorter and easier to read than class components
+
+class Shiba extends React.Component {
+    render() {
+        return <img src="https://picsum.photos/200" />
+    }
+}
+
+here it is as a class 
+
+with a  functional component, react is just going to call the function 
+
+we will not need to write any class based components 
+
+
+
+
+________________________________________
+JSX Expressions
+________________________________________
+
