@@ -1,9 +1,9 @@
 const App = () => {
     return (
         <div>
-            <Shiba />
-            <SharPei />
-            <Shiba />
+            <RandomNum />
+            <RandomNum />
+            <RandomNum />
         </div>
     )
 }

@@ -304,3 +304,25 @@ ________________________________________
 JSX Expressions
 ________________________________________
 
+JSX and props 
+
+javascript syntax extension 
+it is the ability alongside babble to write html-like code in javascript 
+
+right now they are all exactly the same. What if I wanted to introduce something dynamic? something like passing in the name for the dog or the breed on a flask page with jinja 
+
+
+const RandomNum = () => {
+    const rand = Math.floor(Math.random() * 10) + 1;
+    return <h3>{rand}</h3>
+}
+
+
+we now have a dynamic component 
+
+when jsx comes across the curly braces it treats it as a variable
+
+we generally want to keep our jsx code very short 
+
+like if we were creating we would want a post preview card. we could create a different pattern or template which is what props are. 
+
