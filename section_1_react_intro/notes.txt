@@ -1,0 +1,52 @@
+React JS 
+________________________________________
+Students are always interested about react , without fail all of the instructors teach react 
+
+it is one of those topics that everyone thinks they must learn it
+it is a really good idea to know 
+
+we are going to be learning react for a while 
+
+we will start with a high level overview 
+
+understand what React really is 
+
+Get started with React components 
+
+Front End Frameworks 
+What are these? 
+
+we have been working with backend frameworks thus far that make it easier for us to create a server and an application 
+you don't have to use a framework ever but it can be a pain without it 
+
+there is a gradient from express to something like sails 
+
+there is a scale of complexity for the backend and it does also for the front end 
+
+it helps us create front ends easily 
+
+back in the day most of the applications were on a server somewhere and html and css was sent to you 
+javascript improved and we ended up with js applications 
+
+websites in the browser have become way more complicated and the amount of javascript we write are way more complicated
+
+something like the netflix home page , that has all the images and can load videos and you can scroll through the categories 
+how do you make this kind of thing? 
+
+even with just regular js it would be a nightmare 
+
+front end frameworks offer a blueprint 
+their goal is to make development faster and less painful 
+
+larger JS libraries (a framework is not just a collection of methods like axios,lodash, etc)
+
+even something like flask and express expect a certain struture of folders to work correctly
+
+often provide for code reuse 
+prvide templating of HTML (like ejs,erb,jinja)
+
+front end frameworks didnt really exist until we started writing a ton of javascript 
+
+there are dozens of them 
+
+angular , ember, vue, react 
