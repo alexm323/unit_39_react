@@ -1,0 +1,119 @@
+Intro to Props
+_______________________________________
+the components we have made so far are not really reusable 
+
+Properties aka props 
+
+a useful component is a reusable one 
+this often means making it confugurable or customizable 
+
+in react when we define a component it will automatically be passed an argument 
+we have to pass actual arguments in when we use the component 
+
+the example is an order component that we want to fill in the blanks so we can change the output 
+
+we write what looks like html attribute syntax 
+
+react will store those attribute -like items inside of props 
+
+
+const Animal = (props) => {
+    return (
+        <div>
+            <h1>{props.emoji}</h1>
+            <h3>Name: {props.name}</h3>
+            <h3>Species: {props.species}</h3>
+
+        </div>)
+}
+but nothing will show up unless we pass in the props 
+
+const Animal = (props) =>
+(
+    <ul>
+        <li>{props.emoji}</li>
+        <li>Name: {props.name}</li>
+        <li>Species: {props.species}</li>
+
+    </ul>)
+
+
+this is our refactored code and if you leave out a prop it will not be filled in , it will be left blank 
+
+props are immutable 
+
+_______________________________________
+More on Props 
+_______________________________________
+
+react bundles them into an object and then we have access to it 
+
+Props requirements 
+-properties are for configuring your component 
+-properties are immutable
+-properties can be strings 
+
+if we try to set prop.name to bojack our console throws us an error 
+
+Uncaught TypeError: Cannot assign to read only property 'name' of object '#<Object>'
+
+because we cannot change the property
+
+there is something called state that allows us to change what happens within a component and provide new values and things inside of a component 
+
+for now we cannot change the props inside of a component
+
+what if wanted to pass in an age as a number? 
+
+if we want to pass in values that are not strings we need to use curly braces 
+
+we can pass arrays 
+we can pass booleans 
+we can pass objects just the same way 
+
+so that is how we pass in different data types 
+strings use quotes
+everything else uses curly braces 
+
+in a component the props will never change 
+
+
+_______________________________________
+JSX Conditionals
+_______________________________________
+
+so we have seen that we can embed expressions in currently braces inside of the components 
+
+in jinja we saw something very similar , we could also add loops and conditionals 
+
+Your functional components can render:
+- a single valid DOM object(return <div>...<div>)
+- an array of DOM objects (but don;t do this yet)
+- null(undefined is not ok!)
+
+
+inside of a given component we can kind of put whatever logic you want in your function 
+
+lets say that we also pass in a prop called isCute for animals
+
+if we wanted to selectively render something based off of the boolean value of isCute
+_______________________________________
+JSX Loops
+_______________________________________
+
+_______________________________________
+Key Prop
+_______________________________________
+
+_______________________________________
+Default Prop 
+_______________________________________
+
+_______________________________________
+Props Children
+_______________________________________
+
+_______________________________________
+How JSX works
+_______________________________________
+
