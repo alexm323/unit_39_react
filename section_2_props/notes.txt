@@ -97,9 +97,42 @@ inside of a given component we can kind of put whatever logic you want in your f
 lets say that we also pass in a prop called isCute for animals
 
 if we wanted to selectively render something based off of the boolean value of isCute
+
+we could add an if statement in the return statement 
+
+instead it is much mroe common to use a ternary operator 
+
+and keep in mind that the checkmark and the x are strings which we need to keep in mind because when we are inside the curly braces we have to 
+
+so now we have a ternary in our component 
+
+and we can see that it gives us our ability to change based off the prop 
+
+in boolean attributes we can just leace it as 
+
+isCute instead of isCute = {true}
+
+because it is assumed to be true automatically 
+
+we can pass in the boolean explicitly or we can pass it without the corresponding answer 
+
+so if our logic is pretty straight forward it works pretty well to use a ternary operator. We will see it a lot 
+
+but sometimes our logic needs to be a bit longer 
+
+we made a bouncer component
+
+we can also store jsx epxressions in JS variables 
+
+this is what is called conditional rendering , there is multiple approaches we can take 
+
+
+
 _______________________________________
 JSX Loops
 _______________________________________
+
+
 
 _______________________________________
 Key Prop
