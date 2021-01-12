@@ -131,22 +131,246 @@ this is what is called conditional rendering , there is multiple approaches we c
 _______________________________________
 JSX Loops
 _______________________________________
+it is very common to work wuith array of data and loop over them to render JSX 
+a shopping list 
+a list of github repos (display each readme)
+a list of songs from an album (display each title)
+
+when jsx tries to render a straight array like we have for random choice if we just try to render prop.choices then we get 
+a string with no spaces 
+
+react iterates through the array and plugs each piece in 
+
+new component lets call it todolist
+
+when you render an array it is going to iterate and insert each element 
+
+we typically use the map method when using jsx and map will take each li and store it in an array 
+
+instead of hardcoding our todos lets pass in the props
+
+one way to get the todos that we want is to do this 
+
+const TodoList = (props) => {
+    const todos = []
+    for (let t of props.todos) {
+        todos.push(<li>{t}</li>)
+    }
+    return (
+        <div>
+            <h4>Todo List</h4>
+            <ul>{todos}</ul>
+        </div>
+    )
+}
+
+but the more REACTish way of doing it would be to use map, just like we see ternary operator everywhere for conditionals we will see map everywhere for arrays 
+
+map just makes us an array. we can do the exact same thing but we can just do it in a line 
+
+const TodoList = (props) => {
+
+    return (
+        <div>
+            <h4>Todo List</h4>
+            <ul>{props.todos.map(t => <li>{t}</li>)}</ul>
+        </div>
+    )
+}
+
+it can be intimidated because there is a lot of shorthand syntax 
+
+in this case it is a very simple return valye so we can use the implicit return but we could explicitly return stuff too 
 
 
+const TodoList = (props) => {
+
+    return (
+        <div>
+            <h4>Todo List</h4>
+            <ul>{props.todos.map(t => (
+                <li>
+                    <input type="checkbox" />
+                    <b>{t}</b>
+                </li>
+            )
+            )}</ul>
+        </div>
+    )
+}
+
+if we want to add in stuff that we want to render per each element in an array we can do that too 
+
+why is map better? we will see it all the time 
+but later we will talk about pure functions and immutable functions 
+
+LOOK INTO ARRAY METHODS 
+
+you know that your array is going to run in the right order
+your og array will be unaffected 
+
+it is pretty common to see it inside of the JSX rendering 
 
 _______________________________________
 Key Prop
 _______________________________________
 
+Lets talk about the warning that we have seen 
+
+each child in a list should have a unique key prop 
+
+a key prop is a very important piece if we are looping over or rendering adjacent elements 
+
+the name of the prop is called key 
+
+it helps figure out , what has changed , what hasnt 
+it is kind of an id of each element. as soon as we have a map or a loop we need to have a key 
+
+so to fix it we need to have a unique identifier 
+
+in the jokes example we can add an id for each joke and then that would get rid of the warning 
+
+one thing you should never do is use the index to set a key equal to that array index 
+
+the key is supposed to be something that is stable 
+
+as soon as we do something to the array then the keys are changed 
+
+we will revisit keys later on 
+
+it is a warning not a full blown error 
+
+
 _______________________________________
 Default Prop 
 _______________________________________
+Adding in default values for props 
+
+if we are expecting a certain prop like for animal
+where we dont pass it in, we end up with just an empty field so we get undefined 
+
+so in our component we can still reference it but we will end up with undefined
+
+what if we are doing something with that value? 
+we could be putting it in an if statement or something 
+
+So without a max we can see that the math breaks and we get a NaN value shown 
+
+instead of referencing props we can call destructure and call out the params that we want in the props 
+
+so it still works with the destructuring but we can add in a default now in the arguments just adding an equals 
+
+so this is really a pretty easy way to take care of this problem 
+
+react hooks allow us to write full featured functional components 
+
+it is as simple as destructuring and specifying a default values
 
 _______________________________________
 Props Children
 _______________________________________
+A new concept 
+
+All of the components are being rendered by writing the name of the component and a closing bracket 
+
+we can also make components that looks like html tags
+
+
+<Component>
+
+</Component>
+
+lets make one that wraps a component in fire emojis 
+
+what we could do is add a component to what we have already seen 
+
+what if we wanted the alert to contain other components and wrap them inside the fire emojis 
+
+simplest way would be to define alert in a way 
+that accepts that kind of output which would look something like this 
+
+<Alert>
+            <RandomNumRange min={20} max={30} />
+            <RandomNumRange />
+            <RandomChoice choices={['red', 'green', 'yellow']} />
+</Alert>
+
+the only thing is that it will not render whatever is on the inside. so what we have to do is talk about props.children 
+
+so every component is going to be passed a prop called props.children 
+
+we dont have to define it, it is created automatically whenever there is children nested 
+
+it doesnt have to be components either it can just be regular html 
+
+so if we console.log the props we can see that there is a childrens prop of arrays 
+
+so if we want to render the childern we adjust our component to reference props.children
+
+like this 
+
+const Alert = (props) => {
+    console.log(props)
+    return (
+
+        < div >
+            🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+            <p>{props.children}</p>
+🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        </div >
+    )
+}
+
+could also just destructure and have children 
+
+
+we can even get fancy and change the styling and stuff 
+
+children could be custom components we defined or some other elements 
+
+reactstrap is a reactified version of bootstrap that is a react version of bootstrap, material ui is a similar thing 
+
+they are premade libraries of components
+
+so the main takeaway is that it is a common pattern, opening and closing component tags and passing in childrens
+
 
 _______________________________________
 How JSX works
 _______________________________________
+
+To wrap up 
+
+lets talk about how it actually works 
+
+it typically isnt javascript syntax and without babel we wouldnt be able to use it at all 
+
+Babel lets us pick different javascript flavors and it will transpile it into the compliant version 
+
+like if we pick ES2015 so like arrow functions will be rewritten without arrow syntax
+
+so babel takes the fancier syntax and turns it into compatible code 
+
+jsx is just a very fancy way of writing a bunch of 
+
+React.createElement("h1",null,"Hello")
+
+so instead of working with JSX we could write it using the create element method 
+
+return React.createElement("h3", null, "hello")
+
+but if we get mroe complex markup it can be really complicated 
+
+we can see that there is nested react.createelements and that is a ton of nesting 
+
+so we have different React.createElement calls
+
+and then what if wanted to pass in props 
+
+the 2nd parameter passes in an object with the props 
+
+so just a peek behind the curtain and how jsx works
+
+this is why babel needs to be included so that we dont have to write so many react.createElement methods 
 

@@ -5,10 +5,10 @@ const Bouncer = (props) => {
     } else if (props.age < 21) {
         reply = "you can come in, but no drinking"
     } else {
-        reply = <p>
+        reply = <span>
             "Come in, you CAN drinK!"
             <img src="https://media.giphy.com/media/eXg8Ij7JgnyDu/giphy.gif" />
-        </p>
+        </span>
     }
     return (
         <div>
